@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".AndroMoteMainActivity" >
+
+    <Button
+        android:id="@+id/startButton"
+        style="@style/StartButtonTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.45"
+        android:text="@string/start" />
+    
+    <Button
+        android:id="@+id/stopButton"
+        style="@style/StopButtonTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.45"
+        android:text="@string/stop" />
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light" />
+    
+    <style name="StartButtonTheme" parent="@android:style/Widget.Holo.Button" >
+        <item name="android:background">@color/startButtonBackground</item> 
+        <item name="android:textSize">42sp</item>
+    </style>
+    
+    <style name="StopButtonTheme" parent="@android:style/Widget.Holo.Button" >
+        <item name="android:background">@color/stopButtonBackground</item>
+        <item name="android:textSize">42sp</item>
+    </style>
+</resources>
