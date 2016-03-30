@@ -66,10 +66,6 @@ public class HardwareApi extends AndroMoteMobilePlatformApiAbstract {
 	/**
 	 * Start serwisu sterowania silnikami.
 	 *
-	 * @param platformName
-	 *            Nazwa modelu, który jest podłaczony do mikrokontrolera IOIO.
-	 *            Lista obsługiwanych modelów znajduje się w klasie
-	 *            andro_mote.models.ModelFactory.
 	 * @return flaga informująca o tym czy serwis sterowania silnikami został
 	 *         uruchomiony.
 	 * @throws MobilePlatformException
@@ -94,9 +90,6 @@ public class HardwareApi extends AndroMoteMobilePlatformApiAbstract {
 	 * @return flaga informująca o tym czy serwis obiekt Intent został
 	 *         prawdiłowo wysłany - nie gwarantuje to zatrzymania serwisu
 	 *         siników.
-	 * @throws EngineServiceException
-	 *             Wyjątek rzucany w przypadku wykonania nieprawidłowego
-	 *             działania na serwisie silnków - szczegóły w obiekcie wyjątku.
 	 */
 	public boolean stopCommunicationWithDevice() throws MobilePlatformException {
 		checkIfApplicationIsNull();

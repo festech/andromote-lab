@@ -8,6 +8,13 @@ import edu.pw.elka.andromote.commons.PacketType.Motion;
  * Wyjedz platforma z punktu startowego i dojedz do lokalizacji pomiarowej
  */
 public class TaskOne extends RideScenario {
+
+	public static final int FREEZE_TIME_IN_SECONDS = 2;
+
+	public TaskOne() {
+		super(FREEZE_TIME_IN_SECONDS);
+	}
+
 	/**
 	 * W tej metodzie zaprogramuj przejazd platformy z miejsca poczatkowego az do punktu pojazdu
 	 * Pamietaj, zeby nie przejezdzac po liniach miejsca startowego!
@@ -27,6 +34,7 @@ public class TaskOne extends RideScenario {
 				.create());
 		addStep(PacketBuilder.newPacket(Motion.MOVE_RIGHT)
 				.create());
-		addStep(PacketBuilder.newPacket(Motion.STOP).create());
+		addStep(PacketBuilder.newPacket(Motion.STOP)
+				.create());
 	}
 }

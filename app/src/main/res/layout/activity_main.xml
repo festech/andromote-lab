@@ -6,20 +6,11 @@
     android:orientation="vertical"
     tools:context=".AndroMoteMainActivity" >
 
-    <Button
-        android:id="@+id/startButton"
-        style="@style/StartButtonTheme"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.45"
-        android:text="@string/start" />
-    
-    <Button
+   <Button
         android:id="@+id/stopButton"
         style="@style/StopButtonTheme"
         android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.45"
-        android:text="@string/stop" />
+        android:text="@string/stop"
+       android:layout_height="match_parent" />
 
 </LinearLayout>

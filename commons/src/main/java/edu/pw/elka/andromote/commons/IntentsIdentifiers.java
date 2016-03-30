@@ -42,7 +42,7 @@ public class IntentsIdentifiers {
 	 * Identyfikator intencji startującej serwis kontroli silników. Nie zawiera
 	 * pól dodatkowych.
 	 */
-	public static String ACTION_ENGINES_CONTROLLER = "andro_mote.hardware.ioio_service.IOIOLooperManagerService";
+	public static String ACTION_ENGINES_CONTROLLER = "edu.pw.elka.andromote.hardwareapi.ioio_service.IOIOLooperManagerService";
 
 	/**
 	 * Identyfikator intencji broadcastowych odbieranych przez sterownik
@@ -78,8 +78,4 @@ public class IntentsIdentifiers {
 	 */
 	public static String ACTION_BT_SERVICE_ACTION = "andro_mote.bluetooth.service_action";
 
-	/**
-	 * Identyfikator intencji bilbioteki kompasu.
-	 */
-	public static String ACTION_COMPASS = "andro_mote.compass";
 }

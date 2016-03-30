@@ -231,125 +231,53 @@ public class PacketType {
 	 * 
 	 */
 	public enum Motion implements IPacketType {
-
-		/**
-		 * Zlecenie wykonania ruchu do przodu ze zmienną prędkością obrotu na gąsienicach.
-		 * Dotyczy pojazdów gąsienicowych
-		 */
-		MOVE_CATERPILLAR_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu do przodu ze zmienną prędkością obrotu na gąsienicach.
 		 * Dotyczy pojazdów gąsienicowych
 		 */
 		MOVE_CATERPILLAR,
 		/**
-		 * Ruch do przodu inicjowany przez AndroMote.
-		 */
-		MOVE_FORWARD_RESPONSE,
-
-		/**
 		 * Zlecenie wykonania ruchu do przodu.
 		 */
 		MOVE_FORWARD,
-
-		/**
-		 * Ruch do tyłu inicjowany przez AndroMote.
-		 */
-		MOVE_BACKWARD_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu do tyłu.
 		 */
 		MOVE_BACKWARD,
-		
-		/**
-		 * Ruch do przodu przy dwóch różnych prędkościach (np. lewa i prawa gąsienica) inicjowany przez AndroMote.
-		 */
-		MOVE_FORWARD_DIFFER_SPEED_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu do przodu przy dwóch różnych prędkościach (np. lewa i prawa gąsienica).
 		 */
 		MOVE_FORWARD_DIFFER_SPEED,
-
-		/**
-		 * Ruch do tyłu przy dwóch różnych prędkościach (np. lewa i prawa gąsienica) inicjowany przez AndroMote.
-		 */
-		MOVE_BACKWARD_DIFFER_SPEED_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu do tyłu przy dwóch różnych prędkościach (np. lewa i prawa gąsienica).
 		 */
 		MOVE_BACKWARD_DIFFER_SPEED,
-
-		/**
-		 * Ruch w lewo inicjowany przez AndroMote.
-		 */
-		MOVE_LEFT_FORWARD_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu w lewo do przodu.
 		 */
 		MOVE_LEFT_FORWARD,
-
-		/**
-		 * Ruch w prawo inicjowany przez AndroMote.
-		 */
-		MOVE_RIGHT_FORWARD_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu w prawo do przodu.
 		 */
 		MOVE_RIGHT_FORWARD,
-
-		/**
-		 * Ruch w lewo do tyłu inicjowany przez AndroMote.
-		 */
-		MOVE_LEFT_BACKWARD_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu w lewo do tyłu.
 		 */
 		MOVE_LEFT_BACKWARD,
-
-		/**
-		 * Wykonany skręt w lewo bez zatrzymania
-		 */
-		MOVE_LEFT_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu w lewo. W zależności od modelu moze być to
 		 * skręcenie kół lub ciągły skręt w lewo.
 		 */
 		MOVE_LEFT,
-
-		/**
-		 * Wykonane zatrzymanie węzła
-		 */
-		STOP_RESPONSE,
-
 		/**
 		 * Zlecenie zatrzymania węzła.
 		 */
 		STOP,
-
-		/**
-		 * Wykonany skręt w prawo
-		 */
-		MOVE_RIGHT_RESPONSE,
-
 		/**
 		 * Polecenie skrętu w prawo. W zależności od modelu moze być to
 		 * skręcenie kół lub ciągły skręt w prawo.
 		 */
 		MOVE_RIGHT,
-
-		/**
-		 * Wykonany skręt w prawo w tył
-		 */
-		MOVE_RIGHT_BACKWARD_RESPONSE,
-
 		/**
 		 * Zlecenie wykonania ruchu w prawo do tyłu.
 		 */
