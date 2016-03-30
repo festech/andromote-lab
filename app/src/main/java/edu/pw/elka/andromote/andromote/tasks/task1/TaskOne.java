@@ -8,8 +8,8 @@ import edu.pw.elka.andromote.commons.PacketType.Motion;
  * Wyjedz platforma z punktu startowego i dojedz do lokalizacji pomiarowej
  */
 public class TaskOne extends RideScenario {
-
-	public static final int FREEZE_TIME_IN_SECONDS = 2;
+	// Wartosc okreslajaca po jakim czasie od zainstalowania aplikacji rozpocznie sie jazda platformy
+	public static final int FREEZE_TIME_IN_SECONDS = 5;
 
 	public TaskOne() {
 		super(FREEZE_TIME_IN_SECONDS);

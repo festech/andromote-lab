@@ -9,6 +9,7 @@ import edu.pw.elka.andromote.andromote.common.AndroMoteMainActivity;
 import edu.pw.elka.andromote.andromote.tasks.task1.TaskOne;
 import edu.pw.elka.andromote.commons.Packet;
 import edu.pw.elka.andromote.commons.PacketType.Motion;
+import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
 
 /**
  *
@@ -45,12 +46,12 @@ public class RideAsyncTask extends AsyncTask<Void, Integer, Boolean> {
 			Thread.sleep(freezeTimeInSeconds * 1000);
 
 			for(Packet packet : movementSteps) {
-				andromoteActivity.sendPacketToEngineService(packet);
+				ElectronicsController.INSTANCE.execute(packet);
 				Thread.sleep(packet.getStepDuration());
-				andromoteActivity.sendPacketToEngineService(new Packet(Motion.STOP));
+				ElectronicsController.INSTANCE.execute(new Packet(Motion.STOP));
 			}
 		} catch (InterruptedException e) {
-			andromoteActivity.sendPacketToEngineService(new Packet(Motion.STOP));
+			ElectronicsController.INSTANCE.execute(new Packet(Motion.STOP));
 			return false;
 		}
 		return true;

@@ -11,18 +11,31 @@ public class TtsProcessor implements TextToSpeech.OnInitListener {
     private TextToSpeech textToSpeech;
     private boolean readyToTalk = false;
 
+    private boolean isSpeaking = false;
+    private TTSTask task;
+
     public TtsProcessor(Context context) {
         textToSpeech = new TextToSpeech(context, this);
     }
 
     public void speak(String text) {
-        TTSTask task = new TTSTask(text);
+        task = new TTSTask(text);
         task.execute();
+        isSpeaking = true;
+    }
+
+
+    public boolean isSpeaking() {
+        return isSpeaking;
     }
 
     public void cleanup() {
         textToSpeech.stop();
         textToSpeech.shutdown();
+    }
+
+    public void stop() {
+        textToSpeech.stop();
     }
 
     private class TTSTask extends AsyncTask<Void, Void, Void> {
@@ -41,7 +54,7 @@ public class TtsProcessor implements TextToSpeech.OnInitListener {
                 textToSpeech.setLanguage(Locale.getDefault());
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Interrupted");
             }
             return null;
         }
@@ -58,10 +71,14 @@ public class TtsProcessor implements TextToSpeech.OnInitListener {
                 public void onStart(String utteranceId) {}
 
                 @Override
-                public void onError(String utteranceId) {}
+                public void onError(String utteranceId) {
+                    isSpeaking = false;
+                }
 
                 @Override
-                public void onDone(String utteranceId) {}
+                public void onDone(String utteranceId) {
+                    isSpeaking = false;
+                }
             });
         }
     }

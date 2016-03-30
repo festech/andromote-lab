@@ -8,14 +8,15 @@ import edu.pw.elka.andromote.andromote.common.wrappers.TtsProcessor;
 import edu.pw.elka.andromote.andromote.tasks.task2.TaskTwo;
 
 public class SensorAsyncTask extends AsyncTask<Void, Void, Boolean> {
-    public static final int WAIT_FOR_SENSOR_INIT = 1000;
+    private static final int WAIT_FOR_SENSOR_INIT = 1000;
     private final Activity activity;
-    private TaskTwo sensorTask = new TaskTwo();
     private TtsProcessor ttsProcessor;
+    private TaskTwo sensorTask;
 
     public SensorAsyncTask(Activity activity, TtsProcessor ttsProcessor) {
         this.activity = activity;
         this.ttsProcessor = ttsProcessor;
+        sensorTask = new TaskTwo(activity);
         sensorTask.register();
     }
 
@@ -24,7 +25,11 @@ public class SensorAsyncTask extends AsyncTask<Void, Void, Boolean> {
         try {
             Thread.sleep(WAIT_FOR_SENSOR_INIT);
             ttsProcessor.speak(sensorTask.getGreetingText() + " " + sensorTask.getValue());
+            while(ttsProcessor.isSpeaking()) {
+                Thread.sleep(100);
+            }
         } catch (InterruptedException e) {
+            ttsProcessor.stop();
             return false;
         }
         return true;
@@ -35,7 +40,7 @@ public class SensorAsyncTask extends AsyncTask<Void, Void, Boolean> {
         sensorTask.unregister();
         if(!wasCompleted) {
             System.out.println("Execution interrupted");
-            Toast.makeText(activity, "Task one - stopped", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Task two - stopped", Toast.LENGTH_SHORT).show();
         }
     }
 }

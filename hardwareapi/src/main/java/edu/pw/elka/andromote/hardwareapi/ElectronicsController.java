@@ -33,6 +33,12 @@ public enum ElectronicsController {
 		stopAndromoteControllerService();
 	}
 
+	/**
+	 * This method is used to send Andromote packets to IOIO controller
+	 * Send Motion packet in order to control movement of Andromote
+	 * @param packet
+	 * @return true if packet sending was successful, false if not
+	 */
 	public boolean execute(Packet packet) {
 		boolean result;
 		try {	

@@ -17,12 +17,15 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import andromote.hello.world.R;
+import edu.pw.elka.andromote.andromote.common.asynctasks.RemoteControlAsyncTask;
 import edu.pw.elka.andromote.andromote.common.asynctasks.RideAsyncTask;
 import edu.pw.elka.andromote.andromote.common.asynctasks.SensorAsyncTask;
 import edu.pw.elka.andromote.andromote.common.wrappers.TtsProcessor;
+import edu.pw.elka.andromote.andromote.tasks.task3.TaskThree;
 import edu.pw.elka.andromote.andromotelogger.AndroMoteLogger;
 import edu.pw.elka.andromote.commons.IntentsIdentifiers;
 import edu.pw.elka.andromote.commons.Packet;
+import edu.pw.elka.andromote.commons.PacketType;
 import edu.pw.elka.andromote.commons.PacketType.Engine;
 import edu.pw.elka.andromote.commons.hardware.devices.ElectronicDeviceFactory;
 import edu.pw.elka.andromote.devices.andromote_v2.AndroMote2DeviceFactory;
@@ -59,27 +62,17 @@ public class AndroMoteMainActivity extends Activity {
 	private void startScenario() {
 		RideAsyncTask rideAsyncTask = new RideAsyncTask(AndroMoteMainActivity.this);
 		SensorAsyncTask sensorAsyncTask = new SensorAsyncTask(AndroMoteMainActivity.this, ttsProcessor);
+        RemoteControlAsyncTask rcAsyncTask = new RemoteControlAsyncTask(AndroMoteMainActivity.this);
 		rideAsyncTask.executeOnExecutor(executorService);
 		sensorAsyncTask.executeOnExecutor(executorService);
+        rcAsyncTask.executeOnExecutor(executorService);
 	}
 
 	@Override
 	protected void onDestroy() {
 		Log.d(TAG, "onDestroy");
         ttsProcessor.cleanup();
-//		stopEngineService();
 		super.onDestroy();
-	}
-
-
-	/**
-	 * Wyslanie pakietu do serwisu silnikow.
-	 * 
-	 * @param packet
-	 *            Wysylany pakiet {@link Packet}
-	 */
-	public void sendPacketToEngineService(Packet packet) {
-		ElectronicsController.INSTANCE.execute(packet);
 	}
 
 	private void initStopButton() {
@@ -95,11 +88,10 @@ public class AndroMoteMainActivity extends Activity {
 	private void initEngineService() {
 		ElectronicDeviceFactory factory = new AndroMote2DeviceFactory();
 		ElectronicsController.INSTANCE.init(getApplication(), factory);
-		sendPacketToEngineService(new Packet(Engine.SET_STEPPER_MODE));
-		// zmiana czasu trwania jednego kroku
+        ElectronicsController.INSTANCE.execute(new Packet(Engine.SET_STEPPER_MODE));
 		Packet stepDurationPacket = new Packet(Engine.SET_STEP_DURATION);
 		stepDurationPacket.setStepDuration(500);
-		sendPacketToEngineService(stepDurationPacket);
+        ElectronicsController.INSTANCE.execute(stepDurationPacket);
 	}
 
 	private void stopEngineService() {
