@@ -31,9 +31,6 @@
         <service
             android:name="edu.pw.elka.andromote.hardwareapi.ioio_service.IOIOLooperManagerService"
             android:enabled="true" >
-            <intent-filter>
-                <action android:name="andro_mote.hardware.ioio_service.IOIOLooperManagerService" />
-            </intent-filter>
         </service>
     </application>
 

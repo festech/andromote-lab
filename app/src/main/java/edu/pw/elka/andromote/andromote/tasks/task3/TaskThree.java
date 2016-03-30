@@ -1,20 +1,17 @@
 package edu.pw.elka.andromote.andromote.tasks.task3;
 
 import android.app.Activity;
-import android.widget.Toast;
-
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 
 import edu.pw.elka.andromote.andromote.common.StartableStopable;
-import edu.pw.elka.andromote.andromote.common.wrappers.PacketBuilder;
-import edu.pw.elka.andromote.commons.PacketType;
 import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
 
 /**
  * Zaimplementuj komunikacje sieciowa zgodnie z protokolem UDP
+ * - zapoznaj sie z dokumentacja w Internecie
+ * - utworz serwer na porcie 8080
  *
  * Przesylane przez siec komendy tlumacz na pakiety Andromote w celu uzyskania zdalnego sterowania
+ * Wyzwalaj pakiety korzystajac z electronicsController
  *
  * Jesli widzisz taka potrzebe - stworz dodatkowe klasy
  */

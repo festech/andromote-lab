@@ -30,6 +30,7 @@ import edu.pw.elka.andromote.commons.PacketType.Engine;
 import edu.pw.elka.andromote.commons.hardware.devices.ElectronicDeviceFactory;
 import edu.pw.elka.andromote.devices.andromote_v2.AndroMote2DeviceFactory;
 import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
+import edu.pw.elka.andromote.hardwareapi.ioio_service.IOIOLooperManagerService;
 
 /*
  * -----> Do podstawowych dzialan nie trzeba modyfikowac tego pliku <-----
@@ -72,6 +73,7 @@ public class AndroMoteMainActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		Log.d(TAG, "onDestroy");
+        stopEngineService();
         ttsProcessor.cleanup();
         taskThree.stop();
 		super.onDestroy();
@@ -98,7 +100,7 @@ public class AndroMoteMainActivity extends Activity {
 	}
 
 	private void stopEngineService() {
-		Intent closeService = new Intent(IntentsIdentifiers.ACTION_ENGINES_CONTROLLER);
+		Intent closeService = new Intent(AndroMoteMainActivity.this, IOIOLooperManagerService.class);
 		stopService(closeService);
 	}
 }
