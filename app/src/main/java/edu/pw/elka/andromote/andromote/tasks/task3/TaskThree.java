@@ -1,9 +1,14 @@
 package edu.pw.elka.andromote.andromote.tasks.task3;
 
 import android.app.Activity;
-import android.content.Context;
+import android.widget.Toast;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
+import edu.pw.elka.andromote.andromote.common.StartableStopable;
 import edu.pw.elka.andromote.andromote.common.wrappers.PacketBuilder;
+import edu.pw.elka.andromote.commons.PacketType;
 import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
 
 /**
@@ -13,15 +18,22 @@ import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
  *
  * Jesli widzisz taka potrzebe - stworz dodatkowe klasy
  */
-public class TaskThree {
-    private Context context;
+public class TaskThree implements StartableStopable {
+    private Activity activity;
     private ElectronicsController electronicsController = ElectronicsController.INSTANCE;
 
-    public TaskThree(Context context) {
-        this.context = context;
+    public TaskThree(Activity activity) {
+        this.activity = activity;
     }
 
-    public void execute() {
-        //rozbuduj te metode
+    @Override
+    public void start() {
+        // do uzupelnienia
+    }
+
+    @Override
+    public void stop() {
+        // do uzupelnienia
     }
 }
+

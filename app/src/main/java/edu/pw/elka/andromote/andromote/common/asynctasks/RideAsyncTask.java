@@ -6,6 +6,7 @@ import android.widget.Toast;
 import java.util.Queue;
 
 import edu.pw.elka.andromote.andromote.common.AndroMoteMainActivity;
+import edu.pw.elka.andromote.andromote.common.wrappers.RideScenario;
 import edu.pw.elka.andromote.andromote.tasks.task1.TaskOne;
 import edu.pw.elka.andromote.commons.Packet;
 import edu.pw.elka.andromote.commons.PacketType.Motion;
@@ -23,20 +24,20 @@ import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
 
 public class RideAsyncTask extends AsyncTask<Void, Integer, Boolean> {
 	private final AndroMoteMainActivity andromoteActivity;
-	private edu.pw.elka.andromote.andromote.tasks.task1.TaskOne taskOne;
+	private RideScenario rideScenario;
 
 	public RideAsyncTask(AndroMoteMainActivity mainActivity) {
 		super();
 		this.andromoteActivity = mainActivity;
-		this.taskOne = new edu.pw.elka.andromote.andromote.tasks.task1.TaskOne();
-		taskOne.configureMovement();
+		this.rideScenario = new TaskOne();
+		rideScenario.configureMovement();
 	}
 
 	@Override
 	protected Boolean doInBackground(Void... arg) {
-		Queue<Packet> movementSteps = taskOne.getMovementSteps();
+		Queue<Packet> movementSteps = rideScenario.getMovementSteps();
 		try {
-			final int freezeTimeInSeconds = taskOne.getFreezeTimeInSeconds();
+			final int freezeTimeInSeconds = rideScenario.getFreezeTimeInSeconds();
 			andromoteActivity.runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
@@ -51,8 +52,9 @@ public class RideAsyncTask extends AsyncTask<Void, Integer, Boolean> {
 				ElectronicsController.INSTANCE.execute(new Packet(Motion.STOP));
 			}
 		} catch (InterruptedException e) {
-			ElectronicsController.INSTANCE.execute(new Packet(Motion.STOP));
 			return false;
+		} finally {
+			ElectronicsController.INSTANCE.execute(new Packet(Motion.STOP));
 		}
 		return true;
 	}

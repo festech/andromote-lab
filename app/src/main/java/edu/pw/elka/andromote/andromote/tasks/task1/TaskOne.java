@@ -19,22 +19,21 @@ public class TaskOne extends RideScenario {
 	 * W tej metodzie zaprogramuj przejazd platformy z miejsca poczatkowego az do punktu pojazdu
 	 * Pamietaj, zeby nie przejezdzac po liniach miejsca startowego!
 	 */
+    @Override
 	public void configureMovement() {
 		/**
 		 * Przykladowe komendy przemieszczania pojazdu
 		 * Zastap je wlasnym kodem
 		 */
 		addStep(PacketBuilder.newPacket(Motion.MOVE_FORWARD)
+                .withSpeed(0.5f)
+                .withStepDuration(2000)
 				.create());
-		addStep(PacketBuilder.newPacket(Motion.MOVE_BACKWARD)
+        addStep(PacketBuilder.newPacket(Motion.MOVE_BACKWARD)
 				.create());
-		addStep(PacketBuilder.newPacket(Motion.MOVE_LEFT)
-				.withSpeed(0.5f)
-				.withStepDuration(2000)
+        addStep(PacketBuilder.newPacket(Motion.MOVE_LEFT)
 				.create());
 		addStep(PacketBuilder.newPacket(Motion.MOVE_RIGHT)
-				.create());
-		addStep(PacketBuilder.newPacket(Motion.STOP)
 				.create());
 	}
 }

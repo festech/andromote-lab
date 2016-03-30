@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 public class TtsProcessor implements TextToSpeech.OnInitListener {
@@ -52,7 +53,9 @@ public class TtsProcessor implements TextToSpeech.OnInitListener {
                     Thread.sleep(50);
                 }
                 textToSpeech.setLanguage(Locale.getDefault());
-                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+                HashMap<String, String> parametersMap = new HashMap<String, String>();
+                parametersMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "UniqueID");
+                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, parametersMap);
             } catch (InterruptedException e) {
                 System.out.println("Interrupted");
             }

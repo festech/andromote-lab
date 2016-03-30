@@ -14,6 +14,8 @@ public abstract class RideScenario {
         this.freezeTimeInSeconds = freezeTimeInSeconds;
     }
 
+    public abstract void configureMovement();
+
     protected void addStep(Packet packet) {
         movementSteps.add(packet);
     }

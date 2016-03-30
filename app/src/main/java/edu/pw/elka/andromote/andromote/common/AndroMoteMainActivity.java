@@ -39,6 +39,7 @@ public class AndroMoteMainActivity extends Activity {
 	private String TAG = this.getClass().getSimpleName();
 	private Button stopButton = null;
     private TtsProcessor ttsProcessor;
+    private TaskThree taskThree = new TaskThree(this);
 
 	private final BlockingQueue<Runnable> taskQueue = new LinkedBlockingQueue<>();
 	private final ExecutorService executorService = new ThreadPoolExecutor(1, 1, 200, TimeUnit.MILLISECONDS, taskQueue);
@@ -62,7 +63,7 @@ public class AndroMoteMainActivity extends Activity {
 	private void startScenario() {
 		RideAsyncTask rideAsyncTask = new RideAsyncTask(AndroMoteMainActivity.this);
 		SensorAsyncTask sensorAsyncTask = new SensorAsyncTask(AndroMoteMainActivity.this, ttsProcessor);
-        RemoteControlAsyncTask rcAsyncTask = new RemoteControlAsyncTask(AndroMoteMainActivity.this);
+        RemoteControlAsyncTask rcAsyncTask = new RemoteControlAsyncTask(AndroMoteMainActivity.this, taskThree);
 		rideAsyncTask.executeOnExecutor(executorService);
 		sensorAsyncTask.executeOnExecutor(executorService);
         rcAsyncTask.executeOnExecutor(executorService);
@@ -72,6 +73,7 @@ public class AndroMoteMainActivity extends Activity {
 	protected void onDestroy() {
 		Log.d(TAG, "onDestroy");
         ttsProcessor.cleanup();
+        taskThree.stop();
 		super.onDestroy();
 	}
 
@@ -81,6 +83,7 @@ public class AndroMoteMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				executorService.shutdownNow();
+                ElectronicsController.INSTANCE.execute(new Packet(PacketType.Motion.STOP));
 			}
 		});
 	}
