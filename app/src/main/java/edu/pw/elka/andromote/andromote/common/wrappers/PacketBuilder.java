@@ -31,7 +31,7 @@ public class PacketBuilder {
     }
 
     public Packet create() {
-       Packet packet = new Packet(motionType);
+        Packet packet = new Packet(motionType);
         packet.setSpeed(speed);
         packet.setStepDuration(stepDuration);
         return packet;
