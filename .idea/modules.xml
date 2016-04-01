@@ -3,12 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Andromote.iml" filepath="$PROJECT_DIR$/Andromote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/andromote-lab.iml" filepath="$PROJECT_DIR$/.idea/modules/andromote-lab.iml" />
       <module fileurl="file://$PROJECT_DIR$/andromote-lab.iml" filepath="$PROJECT_DIR$/andromote-lab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/commons.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devices/devices.iml" filepath="$PROJECT_DIR$/.idea/modules/devices/devices.iml" />
       <module fileurl="file://$PROJECT_DIR$/devices/devices.iml" filepath="$PROJECT_DIR$/devices/devices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/functionalityframework/functionalityframework.iml" filepath="$PROJECT_DIR$/.idea/modules/functionalityframework/functionalityframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/functionalityframework/functionalityframework.iml" filepath="$PROJECT_DIR$/functionalityframework/functionalityframework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hardwareapi/hardwareapi.iml" filepath="$PROJECT_DIR$/.idea/modules/hardwareapi/hardwareapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/hardwareapi/hardwareapi.iml" filepath="$PROJECT_DIR$/hardwareapi/hardwareapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/logger/logger.iml" filepath="$PROJECT_DIR$/.idea/modules/logger/logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/logger/logger.iml" filepath="$PROJECT_DIR$/logger/logger.iml" />
     </modules>
   </component>

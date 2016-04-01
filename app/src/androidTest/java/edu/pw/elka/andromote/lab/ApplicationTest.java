@@ -1,4 +1,4 @@
-package edu.pw.elka.andromote.andromote;
+package edu.pw.elka.andromote.lab;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

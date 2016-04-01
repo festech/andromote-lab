@@ -1,4 +1,4 @@
-package edu.pw.elka.andromote.andromote.common;
+package edu.pw.elka.andromote.lab.common;
 
 
 public interface StartableStopable {

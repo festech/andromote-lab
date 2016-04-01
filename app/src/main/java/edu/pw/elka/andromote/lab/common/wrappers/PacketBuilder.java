@@ -1,4 +1,4 @@
-package edu.pw.elka.andromote.andromote.common.wrappers;
+package edu.pw.elka.andromote.lab.common.wrappers;
 
 import edu.pw.elka.andromote.commons.Packet;
 import edu.pw.elka.andromote.commons.PacketType.Motion;

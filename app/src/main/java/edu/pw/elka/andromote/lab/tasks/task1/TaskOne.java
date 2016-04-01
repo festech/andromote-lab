@@ -1,7 +1,7 @@
-package edu.pw.elka.andromote.andromote.tasks.task1;
+package edu.pw.elka.andromote.lab.tasks.task1;
 
-import edu.pw.elka.andromote.andromote.common.wrappers.PacketBuilder;
-import edu.pw.elka.andromote.andromote.common.wrappers.RideScenario;
+import edu.pw.elka.andromote.lab.common.wrappers.PacketBuilder;
+import edu.pw.elka.andromote.lab.common.wrappers.RideScenario;
 import edu.pw.elka.andromote.commons.PacketType.Motion;
 
 /**

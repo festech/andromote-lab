@@ -1,4 +1,4 @@
-package edu.pw.elka.andromote.andromote.common.wrappers;
+package edu.pw.elka.andromote.lab.common.wrappers;
 
 import java.util.LinkedList;
 import java.util.Queue;

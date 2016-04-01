@@ -1,12 +1,12 @@
-package edu.pw.elka.andromote.andromote.common.asynctasks;
+package edu.pw.elka.andromote.lab.common.asynctasks;
 
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import edu.pw.elka.andromote.andromote.common.wrappers.SensorBase;
-import edu.pw.elka.andromote.andromote.common.wrappers.TtsProcessor;
-import edu.pw.elka.andromote.andromote.tasks.task2.TaskTwo;
+import edu.pw.elka.andromote.lab.common.wrappers.SensorBase;
+import edu.pw.elka.andromote.lab.common.wrappers.TtsProcessor;
+import edu.pw.elka.andromote.lab.tasks.task2.TaskTwo;
 
 public class SensorAsyncTask extends AsyncTask<Void, Void, Boolean> {
     private static final int WAIT_FOR_SENSOR_INIT = 1000;
@@ -25,7 +25,7 @@ public class SensorAsyncTask extends AsyncTask<Void, Void, Boolean> {
     protected Boolean doInBackground(Void... params) {
         try {
             Thread.sleep(WAIT_FOR_SENSOR_INIT);
-            ttsProcessor.speak(sensorTask.getGreetingText() + " " + sensorTask.getValue());
+            ttsProcessor.speak(sensorTask.getValue() + sensorTask.getUnit());
             while(ttsProcessor.isSpeaking()) {
                 Thread.sleep(100);
             }

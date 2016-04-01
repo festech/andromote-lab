@@ -1,8 +1,8 @@
-package edu.pw.elka.andromote.andromote.tasks.task3;
+package edu.pw.elka.andromote.lab.tasks.task3;
 
 import android.app.Activity;
 
-import edu.pw.elka.andromote.andromote.common.StartableStopable;
+import edu.pw.elka.andromote.lab.common.StartableStopable;
 import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
 
 /**

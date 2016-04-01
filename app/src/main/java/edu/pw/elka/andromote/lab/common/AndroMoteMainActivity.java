@@ -1,4 +1,4 @@
-package edu.pw.elka.andromote.andromote.common;
+package edu.pw.elka.andromote.lab.common;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import edu.pw.elka.andromote.lab.R;
 import org.apache.log4j.BasicConfigurator;
 
 import java.util.concurrent.BlockingQueue;
@@ -16,14 +17,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import andromote.hello.world.R;
-import edu.pw.elka.andromote.andromote.common.asynctasks.RemoteControlAsyncTask;
-import edu.pw.elka.andromote.andromote.common.asynctasks.RideAsyncTask;
-import edu.pw.elka.andromote.andromote.common.asynctasks.SensorAsyncTask;
-import edu.pw.elka.andromote.andromote.common.wrappers.TtsProcessor;
-import edu.pw.elka.andromote.andromote.tasks.task3.TaskThree;
+import edu.pw.elka.andromote.lab.common.asynctasks.RemoteControlAsyncTask;
+import edu.pw.elka.andromote.lab.common.asynctasks.RideAsyncTask;
+import edu.pw.elka.andromote.lab.common.asynctasks.SensorAsyncTask;
+import edu.pw.elka.andromote.lab.common.wrappers.TtsProcessor;
+import edu.pw.elka.andromote.lab.tasks.task3.TaskThree;
 import edu.pw.elka.andromote.andromotelogger.AndroMoteLogger;
-import edu.pw.elka.andromote.commons.IntentsIdentifiers;
 import edu.pw.elka.andromote.commons.Packet;
 import edu.pw.elka.andromote.commons.PacketType;
 import edu.pw.elka.andromote.commons.PacketType.Engine;
@@ -36,7 +35,6 @@ import edu.pw.elka.andromote.hardwareapi.ioio_service.IOIOLooperManagerService;
  * -----> Do podstawowych dzialan nie trzeba modyfikowac tego pliku <-----
  */
 public class AndroMoteMainActivity extends Activity {
-	AndroMoteLogger logger = new AndroMoteLogger(AndroMoteMainActivity.class);
 	private String TAG = this.getClass().getSimpleName();
 	private Button stopButton = null;
     private TtsProcessor ttsProcessor;
@@ -52,19 +50,19 @@ public class AndroMoteMainActivity extends Activity {
 		BasicConfigurator.configure();
 		initEngineService();
 		initStopButton();
+		ttsProcessor = new TtsProcessor(this);
+		startScenario();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-        ttsProcessor = new TtsProcessor(this);
-        startScenario();
 	}
 
 	private void startScenario() {
 		RideAsyncTask rideAsyncTask = new RideAsyncTask(AndroMoteMainActivity.this);
 		SensorAsyncTask sensorAsyncTask = new SensorAsyncTask(AndroMoteMainActivity.this, ttsProcessor);
-        RemoteControlAsyncTask rcAsyncTask = new RemoteControlAsyncTask(AndroMoteMainActivity.this, taskThree);
+        RemoteControlAsyncTask rcAsyncTask = new RemoteControlAsyncTask(taskThree);
 		rideAsyncTask.executeOnExecutor(executorService);
 		sensorAsyncTask.executeOnExecutor(executorService);
         rcAsyncTask.executeOnExecutor(executorService);

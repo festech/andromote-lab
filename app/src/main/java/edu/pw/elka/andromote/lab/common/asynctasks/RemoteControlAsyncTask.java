@@ -1,13 +1,11 @@
-package edu.pw.elka.andromote.andromote.common.asynctasks;
+package edu.pw.elka.andromote.lab.common.asynctasks;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-
-import edu.pw.elka.andromote.andromote.tasks.task3.TaskThree;
+import edu.pw.elka.andromote.lab.tasks.task3.TaskThree;
 
 public class RemoteControlAsyncTask extends AsyncTask<Void, Void, Void> {
     private TaskThree taskThree;
-    public RemoteControlAsyncTask(Activity activity, TaskThree taskThree) {
+    public RemoteControlAsyncTask(TaskThree taskThree) {
         this.taskThree = taskThree;
     }
 

@@ -1,13 +1,13 @@
-package edu.pw.elka.andromote.andromote.common.asynctasks;
+package edu.pw.elka.andromote.lab.common.asynctasks;
 
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import java.util.Queue;
 
-import edu.pw.elka.andromote.andromote.common.AndroMoteMainActivity;
-import edu.pw.elka.andromote.andromote.common.wrappers.RideScenario;
-import edu.pw.elka.andromote.andromote.tasks.task1.TaskOne;
+import edu.pw.elka.andromote.lab.common.AndroMoteMainActivity;
+import edu.pw.elka.andromote.lab.common.wrappers.RideScenario;
+import edu.pw.elka.andromote.lab.tasks.task1.TaskOne;
 import edu.pw.elka.andromote.commons.Packet;
 import edu.pw.elka.andromote.commons.PacketType.Motion;
 import edu.pw.elka.andromote.hardwareapi.ElectronicsController;
